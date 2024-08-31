@@ -8,8 +8,8 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-      { path: '', redirectTo: 'nfts', pathMatch: 'full' },
-      { path: 'nfts', component: NftComponent },
+      { path: '', redirectTo: '', pathMatch: 'full' },
+      { path: '', component: NftComponent },
       { path: '**', redirectTo: 'errors/404' },
     ],
   },

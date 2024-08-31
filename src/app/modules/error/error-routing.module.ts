@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '404', pathMatch: 'full' },
       { path: '404', component: Error404Component },
-      { path: '500', component: Error500Component },
+      // { path: '500', component: Error500Component },
       { path: '**', redirectTo: 'errors/404' },
     ],
   },
