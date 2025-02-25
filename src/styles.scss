@@ -161,5 +161,8 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
 /** Plugins **/
 @import './assets/styles/apexchart.scss';
