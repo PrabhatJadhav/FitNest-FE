@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
+import { ApiService } from 'src/app/core/services/api/api.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,9 +16,14 @@ import { ButtonComponent } from '../../../../shared/components/button/button.com
 export class SignInComponent implements OnInit {
   form!: FormGroup;
   submitted = false;
+  rememberMe: boolean = false;
   passwordTextType!: boolean;
 
-  constructor(private readonly _formBuilder: FormBuilder, private readonly _router: Router) {}
+  constructor(
+    private readonly _formBuilder: FormBuilder,
+    private readonly _router: Router,
+    private apiService: ApiService,
+  ) {}
 
   onClick() {
     console.log('Button clicked');
@@ -38,15 +44,41 @@ export class SignInComponent implements OnInit {
     this.passwordTextType = !this.passwordTextType;
   }
 
+  onRememberMeClick(event: any) {
+    this.rememberMe = event.target.checked ?? false;
+  }
+
   onSubmit() {
     this.submitted = true;
     const { email, password } = this.form.value;
+
+    this.apiService.get('/api/test').subscribe(
+      (response) => {
+        console.log('test response', response);
+        // localStorage.setItem('token', response.token);  // Unsafe
+        // this._router.navigate(['/']);
+      },
+      (error: any) => {
+        console.log('error', error);
+      },
+    );
 
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
     }
 
-    this._router.navigate(['/']);
+    this.apiService.post('/api/v1/auth/login', { email, password }).subscribe(
+      (response) => {
+        console.log(response);
+        // localStorage.setItem('token', response.token);  // Unsafe
+        // this._router.navigate(['/']);
+      },
+      (error: any) => {
+        console.log('error', error);
+      },
+    );
+
+    // this._router.navigate(['/']);
   }
 }
