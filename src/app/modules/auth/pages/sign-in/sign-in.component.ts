@@ -5,6 +5,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { ApiService } from 'src/app/core/services/api/api.service';
+import { LOCALSTORAGE_CONSTANTS } from 'src/app/core/constants/local-storage.constants';
 
 @Component({
   selector: 'app-sign-in',
@@ -52,17 +53,6 @@ export class SignInComponent implements OnInit {
     this.submitted = true;
     const { email, password } = this.form.value;
 
-    this.apiService.get('/api/test').subscribe(
-      (response) => {
-        console.log('test response', response);
-        // localStorage.setItem('token', response.token);  // Unsafe
-        // this._router.navigate(['/']);
-      },
-      (error: any) => {
-        console.log('error', error);
-      },
-    );
-
     // stop here if form is invalid
     if (this.form.invalid) {
       return;
@@ -71,11 +61,17 @@ export class SignInComponent implements OnInit {
     this.apiService.post('/api/v1/auth/login', { email, password }).subscribe(
       (response) => {
         console.log(response);
-        // localStorage.setItem('token', response.token);  // Unsafe
-        // this._router.navigate(['/']);
+        if (response.token && response.refreshToken) {
+          localStorage.setItem(LOCALSTORAGE_CONSTANTS.TOKEN, response.token);
+          localStorage.setItem(LOCALSTORAGE_CONSTANTS.REFRESH_TOKEN, response.refreshToken);
+          this._router.navigate(['/']);
+        } else {
+          // Handle error
+        }
       },
       (error: any) => {
         console.log('error', error);
+        // Handle error
       },
     );
 
