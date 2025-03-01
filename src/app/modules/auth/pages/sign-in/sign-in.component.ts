@@ -6,13 +6,15 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { ApiService } from 'src/app/core/services/api/api.service';
 import { LOCALSTORAGE_CONSTANTS } from 'src/app/core/constants/local-storage.constants';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { LOGIN_API } from 'src/app/core/constants/api-routes';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, RouterLink, AngularSvgIconModule, NgClass, NgIf, ButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, AngularSvgIconModule, NgClass, NgIf, ButtonComponent],
 })
 export class SignInComponent implements OnInit {
   form!: FormGroup;
@@ -24,6 +26,7 @@ export class SignInComponent implements OnInit {
     private readonly _formBuilder: FormBuilder,
     private readonly _router: Router,
     private apiService: ApiService,
+    private authService: AuthService,
   ) {}
 
   onClick() {
@@ -58,12 +61,12 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    this.apiService.post('/api/v1/auth/login', { email, password }).subscribe(
+    this.apiService.post(LOGIN_API, { email, password }).subscribe(
       (response) => {
         console.log(response);
-        if (response.token && response.refreshToken) {
-          localStorage.setItem(LOCALSTORAGE_CONSTANTS.TOKEN, response.token);
-          localStorage.setItem(LOCALSTORAGE_CONSTANTS.REFRESH_TOKEN, response.refreshToken);
+        if (response?.token && response?.refreshToken) {
+          this.authService.setRefreshToken(response.refreshToken);
+          this.authService.setToken(response.token);
           this._router.navigate(['/']);
         } else {
           // Handle error
