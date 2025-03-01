@@ -8,6 +8,7 @@ type ButtonProps = {
   shape: 'square' | 'rounded' | 'pill';
   tone: 'primary' | 'danger' | 'success' | 'warning' | 'info' | 'light';
   shadow: 'none' | 'small' | 'medium' | 'large';
+  buttonType: 'submit' | 'button' | 'menu' | 'reset';
 };
 
 @Component({
@@ -18,6 +19,7 @@ type ButtonProps = {
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent implements OnInit {
+  buttonType = input<ButtonProps['buttonType']>('submit');
   impact = input<ButtonProps['impact']>('none');
   size = input<ButtonProps['size']>('medium');
   shape = input<ButtonProps['shape']>('rounded');
