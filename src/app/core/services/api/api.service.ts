@@ -8,7 +8,7 @@ import { LOCALSTORAGE_CONSTANTS } from '../../constants/local-storage.constants'
   providedIn: 'root',
 })
 export class ApiService {
-  private basePath = environment.apiHost;
+  private basePath = environment.apiHost + environment.version;
 
   constructor(private http: HttpClient) {}
 
