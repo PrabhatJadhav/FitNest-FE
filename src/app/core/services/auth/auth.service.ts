@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private router: Router, private apiService: ApiService) {}
   logout() {
     this.removeLocalStorageData();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/sigin']);
   }
 
   isLoggedIn(): boolean {

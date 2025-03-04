@@ -34,6 +34,11 @@ export class SignInComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authService.isLoggedIn()) {
+      this._router.navigate(['/']);
+      return;
+    }
+
     this.form = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
