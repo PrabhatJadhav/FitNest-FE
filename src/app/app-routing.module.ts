@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ErrorInterceptor } from './core/interceptor/error-interceptor';
+import { ToastrModule } from 'ngx-toastr';
+import { ToasterComponent } from './shared/components/toaster/toaster.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
@@ -22,7 +26,18 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), HttpClientModule],
+  declarations: [ToasterComponent, ToasterComponent],
+  imports: [
+    CommonModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    ToastrModule.forRoot({
+      toastComponent: ToasterComponent,
+      // disableTimeOut: true,
+      // maxOpened: 1,
+    }),
+  ],
   exports: [RouterModule],
   providers: [
     // CurrencyPipe,

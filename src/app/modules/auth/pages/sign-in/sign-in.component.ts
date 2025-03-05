@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/core/services/api/api.service';
 import { LOCALSTORAGE_CONSTANTS } from 'src/app/core/constants/local-storage.constants';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { LOGIN_API } from 'src/app/core/constants/api-routes';
+import { ToasterService } from 'src/app/core/services/toaster.service';
+import { GENERAL_ERROR, INVALID_FORM_ERROR, NO_SESSION_ERROR } from 'src/app/core/constants/messages';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,15 +29,13 @@ export class SignInComponent implements OnInit {
     private readonly _router: Router,
     private apiService: ApiService,
     private authService: AuthService,
+    private toasterService: ToasterService,
   ) {}
-
-  onClick() {
-    console.log('Button clicked');
-  }
 
   ngOnInit(): void {
     if (this.authService.isLoggedIn()) {
       this._router.navigate(['/']);
+      this.toasterService.showError(NO_SESSION_ERROR);
       return;
     }
 
@@ -63,6 +63,7 @@ export class SignInComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.form.invalid) {
+      this.toasterService.showError(INVALID_FORM_ERROR);
       return;
     }
 
@@ -74,11 +75,13 @@ export class SignInComponent implements OnInit {
           this.authService.setToken(response.token);
           this._router.navigate(['/']);
         } else {
+          this.toasterService.showError(GENERAL_ERROR);
           // Handle error
         }
       },
       (error: any) => {
         console.log('error', error);
+        this.toasterService.showError(error?.errorMessage ?? GENERAL_ERROR);
         // Handle error
       },
     );

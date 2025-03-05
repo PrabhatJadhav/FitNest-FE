@@ -1,0 +1,12 @@
+<div (click)="remove()" class="flex">
+  <div style="width: 4px" class="bg-{{ toastPackage.toastType }}-bar"></div>
+  <div class="toaster-msg-container">
+    <div *ngIf="title" class="toaster-title" [attr.aria-label]="title">
+      {{ title }}
+    </div>
+
+    <div *ngIf="message && message != ''" role="alert" class="toaster-message" [attr.aria-label]="message">
+      {{ message }}
+    </div>
+  </div>
+</div>
