@@ -20,7 +20,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -47,6 +47,7 @@
     "apexcharts": "^3.35.3",
     "ng-apexcharts": "^1.7.1",
     "ngx-sonner": "^2.0.1",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
