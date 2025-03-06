@@ -23,6 +23,7 @@ export class SignInComponent implements OnInit {
   submitted = false;
   rememberMe: boolean = false;
   passwordTextType!: boolean;
+  loading: boolean = false;
 
   constructor(
     private readonly _formBuilder: FormBuilder,
@@ -67,6 +68,9 @@ export class SignInComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+    this.form?.disable();
+
     this.apiService.post(LOGIN_API, { email, password }).subscribe(
       (response) => {
         console.log(response);
@@ -74,14 +78,20 @@ export class SignInComponent implements OnInit {
           this.authService.setRefreshToken(response.refreshToken);
           this.authService.setToken(response.token);
           this._router.navigate(['/']);
+          this.loading = false;
+          this.form?.enable();
         } else {
           this.toasterService.showError(GENERAL_ERROR);
+          this.loading = false;
+          this.form?.enable();
           // Handle error
         }
       },
       (error: any) => {
         console.log('error', error);
         this.toasterService.showError(error?.errorMessage ?? GENERAL_ERROR);
+        this.loading = false;
+        this.form?.enable();
         // Handle error
       },
     );

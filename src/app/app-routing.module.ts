@@ -35,6 +35,7 @@ const routes: Routes = [
     ToastrModule.forRoot({
       toastComponent: ToasterComponent,
       // disableTimeOut: true,
+      preventDuplicates: true,
       // maxOpened: 1,
     }),
   ],
