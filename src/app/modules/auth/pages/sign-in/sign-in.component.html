@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="form__group">
+    <div *ngIf="!hidePasswordField" class="form__group">
       <div class="relative">
         <input
           [type]="passwordTextType ? 'text' : 'password'"
@@ -72,12 +72,7 @@
 
   <div class="mb-2 flex items-center justify-between space-x-3">
     <div class="flex items-center">
-      <input
-        [value]="rememberMe"
-        (change)="onRememberMeClick($event)"
-        id="remember-me"
-        name="remember-me"
-        type="checkbox" />
+      <input formControlName="rememberMe" id="remember-me" name="remember-me" type="checkbox" />
       <label for="remember-me" class="ml-2 block text-sm text-muted-foreground"> Remember me </label>
     </div>
 

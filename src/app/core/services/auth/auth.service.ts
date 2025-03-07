@@ -28,6 +28,16 @@ export class AuthService {
     return localStorage.getItem(LOCALSTORAGE_CONSTANTS.REFRESH_TOKEN ?? null);
   }
 
+  getUserObject() {
+    try {
+      const user = JSON.parse(localStorage.getItem(LOCALSTORAGE_CONSTANTS.USER) ?? 'null');
+
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
   getAccessTokenFromRefreshToken(): Observable<any> {
     const refreshTokenPath = environment.apiHost + environment.version + REFRESH_TOKEN_API;
     return this.apiService.post(refreshTokenPath, {
@@ -41,6 +51,10 @@ export class AuthService {
 
   setRefreshToken(refreshToken: string) {
     localStorage.setItem(LOCALSTORAGE_CONSTANTS.REFRESH_TOKEN, refreshToken ?? null);
+  }
+
+  setUserObject(user: any) {
+    localStorage.setItem(LOCALSTORAGE_CONSTANTS.USER, JSON.stringify(user ?? 'null'));
   }
 
   removeLocalStorageData() {
