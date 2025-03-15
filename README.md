@@ -1,4 +1,5 @@
-📖 Fitness App
+📖 Fitness App<br/>
+
 A modern fitness application that promotes gym routines, healthy eating, and progress tracking.
 
 🚀 Features
@@ -10,9 +11,10 @@ A modern fitness application that promotes gym routines, healthy eating, and pro
 - [ ] Community & Challenges – Fitness challenges, leaderboards, and social interactions
 - [ ] Personalized Dashboard – Overview of user progress
 
-🛠 Tech Stack
-✅ `Frontend: AngularJS`
-✅ `Backend: Node.js with Express`
-✅ `Database: PostgreSQL`
-✅ `Authentication: JWT-based authentication`
-✅ `Styling: TailwindCSS`
+🛠 Tech Stack<br/>
+
+✅ `Frontend: AngularJS`<br/>
+✅ `Backend: Node.js with Express`<br/>
+✅ `Database: PostgreSQL`<br/>
+✅ `Authentication: JWT-based authentication`<br/>
+✅ `Styling: TailwindCSS`<br/>
