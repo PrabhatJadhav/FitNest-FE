@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { LOGIN_API, REFRESH_TOKEN_API } from 'src/app/core/constants/api-routes';
 import { ToasterService } from 'src/app/core/services/toaster.service';
 import { GENERAL_ERROR, INVALID_FORM_ERROR, NO_SESSION_ERROR } from 'src/app/core/constants/messages';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -60,13 +61,11 @@ export class SignInComponent implements OnInit {
       this.patchFieldValue('rememberMe', true);
     }
 
-    this.form?.valueChanges?.subscribe((values) => {
-      // console.log('Form changed:', values);
-      console.log('Form:', this.form);
-
+    this.form?.valueChanges?.pipe(debounceTime(1000)).subscribe((values) => {
       if (!this.form?.pristine) {
         this.isRefreshTokenSignIn = false;
         this.hidePasswordField = false;
+
         this.toggleFieldEnableDisable('password', false);
       }
     });
@@ -122,6 +121,7 @@ export class SignInComponent implements OnInit {
       console.debug('e', e);
       this.toasterService.showError(GENERAL_ERROR);
       this.loading = false;
+      this.form?.enable();
     }
   }
 
@@ -153,6 +153,7 @@ export class SignInComponent implements OnInit {
       console.debug('e', e);
       this.toasterService.showError(GENERAL_ERROR);
       this.loading = false;
+      this.form?.enable();
     }
   }
 

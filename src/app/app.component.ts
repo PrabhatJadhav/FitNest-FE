@@ -10,7 +10,7 @@ import { NgxSonnerToaster } from 'ngx-sonner';
   imports: [RouterOutlet, NgxSonnerToaster],
 })
 export class AppComponent {
-  title = 'Angular Tailwind';
+  title = 'FitNest';
 
   constructor(public themeService: ThemeService) {}
 }

@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/angular-tailwind'),
+      dir: require('path').join(__dirname, './coverage/fitnest'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },
@@ -37,5 +37,5 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true,
-  })
-}
+  });
+};

@@ -1,23 +1,22 @@
 {
-  "name": "angular-tailwind",
-  "displayName": "Angular Tailwind",
+  "name": "fitnest",
+  "displayName": "FitNest",
   "version": "0.8.0",
-  "description": "Angular & Tailwind CSS Admin Dashboard Starter Kit, Free and Open Source",
-  "homepage": "https://github.com/lannodev/angular-tailwind#readme",
+  "description": "A modern fitness app to track workouts, nutrition, and progress. Users can explore exercise guides, manage meal plans, join challenges, and connect with the community.",
+  "homepage": "https://github.com/PrabhatJadhav/FitNest-FE?tab=readme-ov-file#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lannodev/angular-tailwind.git"
+    "url": "git+https://github.com/PrabhatJadhav/FitNest-FE"
   },
   "keywords": [
+    "fitness",
+    "recipe",
+    "nutrition",
     "angular",
     "tailwind",
-    "starter-kit",
-    "tailwind-template",
     "dark mode",
     "open source"
   ],
-  "author": "Luciano Oliveira <me@lanno.dev>",
-  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
