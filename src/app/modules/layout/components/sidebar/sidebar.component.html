@@ -1,6 +1,6 @@
 <nav
   [ngClass]="menuService.showSideBar ? 'w-52 xl:w-64' : 'w-[70px]'"
-  class="scrollbar-thumb-rounded scrollbar-track-rounded hidden h-full flex-col justify-between overflow-auto bg-background pt-3 transition-all duration-300 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-card lg:flex">
+  class="hidden h-full flex-col justify-between overflow-auto bg-background pt-3 transition-all duration-300 scrollbar-thin scrollbar-thumb-rounded scrollbar-track-rounded scrollbar-track-transparent scrollbar-thumb-card lg:flex">
   <div class="px-4">
     <!-- Logo -->
     <div class="relative h-10">
@@ -8,7 +8,7 @@
         <a
           (click)="toggleSidebar()"
           class="flex cursor-pointer items-center justify-center rounded bg-primary p-2 focus:outline-none focus:ring-1">
-          <svg-icon src="assets/icons/logo.svg"> </svg-icon>
+          <svg-icon src="assets/icons/fitnest-logo-1.svg"> </svg-icon>
         </a>
         <b class="ml-1 pl-2 text-sm font-bold text-foreground">
           {{ appJson.displayName }}
@@ -16,7 +16,7 @@
       </div>
       <button
         (click)="toggleSidebar()"
-        class="absolute top-2 right-2 flex h-5 w-5 items-center justify-center rounded text-muted-foreground/50 transition-all duration-200 focus:outline-none hover:text-muted-foreground"
+        class="absolute right-2 top-2 flex h-5 w-5 items-center justify-center rounded text-muted-foreground/50 transition-all duration-200 focus:outline-none hover:text-muted-foreground"
         [ngClass]="{ 'rotate-180': !menuService.showSideBar }">
         <svg-icon src="assets/icons/heroicons/solid/chevron-double-left.svg"> </svg-icon>
       </button>
@@ -35,7 +35,7 @@
     <!-- Version -->
     <a
       target="_blank"
-      href="https://github.com/luciano-work/angular-tailwind"
+      href="https://github.com/luciano-work/fitnest"
       class="group flex h-9 cursor-pointer items-center justify-start rounded p-2 hover:bg-card">
       <svg-icon
         src="assets/icons/heroicons/outline/information-circle.svg"
@@ -48,7 +48,7 @@
 
       <div class="fixed w-full" *ngIf="!menuService.showSideBar">
         <span
-          class="z-1 absolute left-12 -top-4 w-auto min-w-max origin-left scale-0 rounded-md bg-foreground p-2 text-xs font-bold text-background shadow-md transition-all duration-200 group-hover:scale-100">
+          class="z-1 absolute -top-4 left-12 w-auto min-w-max origin-left scale-0 rounded-md bg-foreground p-2 text-xs font-bold text-background shadow-md transition-all duration-200 group-hover:scale-100">
           v{{ appJson.version }}
         </span>
       </div>
