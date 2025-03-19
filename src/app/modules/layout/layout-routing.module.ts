@@ -8,13 +8,17 @@ const routes: Routes = [
     component: LayoutComponent,
     loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  {
+    path: 'exercise',
+    component: LayoutComponent,
+    loadChildren: () => import('../pages/exercise/exercise.module').then((m) => m.ExerciseModule),
+  },
   // {
   //   path: 'components',
   //   component: LayoutComponent,
   //   loadChildren: () => import('../uikit/uikit.module').then((m) => m.UikitModule),
   // },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: 'error/404' },
 ];
 
 @NgModule({

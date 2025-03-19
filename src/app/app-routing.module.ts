@@ -26,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ToasterComponent, ToasterComponent],
+  declarations: [ToasterComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
