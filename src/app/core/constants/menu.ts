@@ -1,5 +1,21 @@
 import { MenuItem } from '../models/menu.model';
-import { DASHBOARD_PAGE_URL, EXERCISE_BASE_URL, EXERCISE_GUIDE_URL, MUSCLE_GROUP_URL } from './app-routes';
+import {
+  ALL_RECIPES_URL,
+  BEST_RESULTS_WORKOUTS_URL,
+  CALORIES_MACROS_URL,
+  CUSTOM_WORKOUTS_URL,
+  DASHBOARD_PAGE_URL,
+  EXERCISE_BASE_URL,
+  EXERCISE_GUIDE_URL,
+  FAVOURITE_RECIPES_URL,
+  FAVOURITE_WORKOUTS_URL,
+  MEAL_PLANNER_URL,
+  MUSCLE_GROUP_URL,
+  NUTRITION_BASE_URL,
+  RECIPES_BASE_URL,
+  TRENDING_RECIPES_URL,
+  WORKOUTS_BASE_URL,
+} from './app-routes';
 
 export class Menu {
   public static pages: MenuItem[] = [
@@ -21,17 +37,17 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/download.svg',
           label: 'Custom',
-          route: '/download',
+          route: `/${WORKOUTS_BASE_URL}/${CUSTOM_WORKOUTS_URL}`,
         },
         {
           icon: 'assets/icons/heroicons/outline/gift.svg',
           label: 'Best Results',
-          route: '/gift',
+          route: `/${WORKOUTS_BASE_URL}/${FAVOURITE_WORKOUTS_URL}`,
         },
         {
           icon: 'assets/icons/heroicons/outline/users.svg',
           label: 'Favourite',
-          route: '/users',
+          route: `/${WORKOUTS_BASE_URL}/${BEST_RESULTS_WORKOUTS_URL}`,
         },
       ],
     },
@@ -64,24 +80,24 @@ export class Menu {
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/download.svg',
-          label: 'Recipes',
-          route: '/download',
-          children: [
-            { label: 'All', route: '/folders/current-files' },
-            { label: 'Trending', route: '/folders/download' },
-            { label: 'Favourite', route: '/folders/trash' },
-          ],
+          icon: 'assets/icons/heroicons/outline/users.svg',
+          label: 'Calories & Macros',
+          route: `/${NUTRITION_BASE_URL}/${CALORIES_MACROS_URL}`,
         },
         {
           icon: 'assets/icons/heroicons/outline/gift.svg',
           label: 'Meal Planner',
-          route: '/gift',
+          route: `/${NUTRITION_BASE_URL}/${MEAL_PLANNER_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/users.svg',
-          label: 'Calories & Macros',
-          route: '/users',
+          icon: 'assets/icons/heroicons/outline/download.svg',
+          label: 'Recipes',
+          route: `/${NUTRITION_BASE_URL}/${RECIPES_BASE_URL}`,
+          children: [
+            { label: 'All', route: `/${NUTRITION_BASE_URL}/${RECIPES_BASE_URL}/${ALL_RECIPES_URL}` },
+            { label: 'Trending', route: `/${NUTRITION_BASE_URL}/${RECIPES_BASE_URL}/${TRENDING_RECIPES_URL}` },
+            { label: 'Favourite', route: `/${NUTRITION_BASE_URL}/${RECIPES_BASE_URL}/${FAVOURITE_RECIPES_URL}` },
+          ],
         },
       ],
     },

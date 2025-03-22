@@ -2,11 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-meal-planner',
-  standalone: true,
-  imports: [],
   templateUrl: './meal-planner.component.html',
-  styleUrl: './meal-planner.component.scss'
+  styleUrl: './meal-planner.component.scss',
 })
-export class MealPlannerComponent {
-
-}
+export class MealPlannerComponent {}

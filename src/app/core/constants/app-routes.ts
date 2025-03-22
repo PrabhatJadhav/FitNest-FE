@@ -1,5 +1,16 @@
 export const LOGIN_PAGE_URL = 'auth';
 export const DASHBOARD_PAGE_URL = 'dashboard';
 export const EXERCISE_BASE_URL = 'exercise';
+export const WORKOUTS_BASE_URL = 'workouts';
+export const NUTRITION_BASE_URL = 'nutrition';
+export const CUSTOM_WORKOUTS_URL = 'custom-workouts';
+export const BEST_RESULTS_WORKOUTS_URL = 'best-results-workouts';
+export const FAVOURITE_WORKOUTS_URL = 'favourite-workouts';
 export const EXERCISE_GUIDE_URL = 'exercise-guide';
 export const MUSCLE_GROUP_URL = 'muscle-group';
+export const CALORIES_MACROS_URL = 'calories-macros';
+export const MEAL_PLANNER_URL = 'meal-planner';
+export const RECIPES_BASE_URL = 'recipes';
+export const ALL_RECIPES_URL = 'all-recipes';
+export const TRENDING_RECIPES_URL = 'trending-recipes';
+export const FAVOURITE_RECIPES_URL = 'favourite-recipes';
