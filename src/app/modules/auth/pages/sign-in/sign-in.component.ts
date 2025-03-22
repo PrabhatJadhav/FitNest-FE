@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NgClass, NgIf } from '@angular/common';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '../../../../shared/components/button/button.component';
 import { ApiService } from 'src/app/core/services/api/api.service';
 import { LOCALSTORAGE_CONSTANTS } from 'src/app/core/constants/local-storage.constants';
@@ -17,7 +16,7 @@ import { debounceTime } from 'rxjs';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, AngularSvgIconModule, NgClass, NgIf, ButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, NgClass, NgIf, ButtonComponent],
 })
 export class SignInComponent implements OnInit {
   form!: FormGroup;

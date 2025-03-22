@@ -1,6 +1,5 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { SubMenuItem } from 'src/app/core/models/menu.model';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { NgFor, NgTemplateOutlet, NgIf } from '@angular/common';
 
@@ -9,7 +8,7 @@ import { NgFor, NgTemplateOutlet, NgIf } from '@angular/common';
   templateUrl: './navbar-submenu.component.html',
   styleUrls: ['./navbar-submenu.component.scss'],
   standalone: true,
-  imports: [NgFor, NgTemplateOutlet, RouterLinkActive, RouterLink, NgIf, AngularSvgIconModule],
+  imports: [NgFor, NgTemplateOutlet, RouterLinkActive, RouterLink, NgIf],
 })
 export class NavbarSubmenuComponent implements OnInit {
   @Input() public submenu = <SubMenuItem[]>{};

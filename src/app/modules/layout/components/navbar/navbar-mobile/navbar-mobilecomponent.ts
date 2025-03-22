@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../../services/menu.service';
 import { NavbarMobileMenuComponent } from './navbar-mobile-menu/navbar-mobile-menu.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -11,7 +10,7 @@ import { NgClass } from '@angular/common';
     standalone: true,
     imports: [
         NgClass,
-        AngularSvgIconModule,
+        
         NavbarMobileMenuComponent,
     ],
 })

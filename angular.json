@@ -27,9 +27,18 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["node_modules/ngx-toastr/toastr.css", "src/styles.scss"],
-            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"],
-            "allowedCommonJsDependencies": ["apexcharts"]
+            "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/@phosphor-icons/web/src/regular/style.css",
+              "node_modules/@phosphor-icons/web/src/bold/style.css",
+              "node_modules/@phosphor-icons/web/src/duotone/style.css",
+              "node_modules/@phosphor-icons/web/src/fill/style.css",
+              "node_modules/@phosphor-icons/web/src/light/style.css",
+              "node_modules/@phosphor-icons/web/src/thin/style.css",
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "allowedCommonJsDependencies": []
           },
           "configurations": {
             "production": {
@@ -92,7 +101,7 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["node_modules/ngx-toastr/toastr.css", "src/styles.scss"],
-            "scripts": ["node_modules/apexcharts/dist/apexcharts.min.js"]
+            "scripts": []
           }
         }
       }

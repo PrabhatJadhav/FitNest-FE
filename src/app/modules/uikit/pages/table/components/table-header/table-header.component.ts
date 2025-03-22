@@ -1,10 +1,9 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
   selector: '[app-table-header]',
   standalone: true,
-  imports: [AngularSvgIconModule],
+  imports: [],
   templateUrl: './table-header.component.html',
   styleUrl: './table-header.component.scss',
 })

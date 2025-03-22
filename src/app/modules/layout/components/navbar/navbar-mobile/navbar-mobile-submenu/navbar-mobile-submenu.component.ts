@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/modules/layout/services/menu.service';
 import { SubMenuItem } from 'src/app/core/models/menu.model';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { RouterLinkActive, RouterLink } from '@angular/router';
 import { NgClass, NgFor, NgTemplateOutlet } from '@angular/common';
 
@@ -16,7 +15,7 @@ import { NgClass, NgFor, NgTemplateOutlet } from '@angular/common';
         NgTemplateOutlet,
         RouterLinkActive,
         RouterLink,
-        AngularSvgIconModule,
+       
     ],
 })
 export class NavbarMobileSubmenuComponent implements OnInit {

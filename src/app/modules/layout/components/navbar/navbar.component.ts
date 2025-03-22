@@ -3,7 +3,6 @@ import { MenuService } from '../../services/menu.service';
 import { NavbarMobileComponent } from './navbar-mobile/navbar-mobilecomponent';
 import { ProfileMenuComponent } from './profile-menu/profile-menu.component';
 import { NavbarMenuComponent } from './navbar-menu/navbar-menu.component';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
     selector: 'app-navbar',
@@ -11,7 +10,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     styleUrls: ['./navbar.component.scss'],
     standalone: true,
     imports: [
-        AngularSvgIconModule,
+        
         NavbarMenuComponent,
         ProfileMenuComponent,
         NavbarMobileComponent,

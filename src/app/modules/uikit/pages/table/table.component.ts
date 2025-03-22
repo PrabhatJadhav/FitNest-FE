@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, signal } from '@angular/core';
-import { AngularSvgIconModule } from 'angular-svg-icon';
 import { User } from './model/user.model';
 import { FormsModule } from '@angular/forms';
 import { TableHeaderComponent } from './components/table-header/table-header.component';
@@ -13,7 +12,6 @@ import { toast } from 'ngx-sonner';
   selector: 'app-table',
   standalone: true,
   imports: [
-    AngularSvgIconModule,
     FormsModule,
     TableHeaderComponent,
     TableFooterComponent,
