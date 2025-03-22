@@ -1,4 +1,5 @@
 import { MenuItem } from '../models/menu.model';
+import { DASHBOARD_PAGE_URL, EXERCISE_BASE_URL, EXERCISE_GUIDE_URL, MUSCLE_GROUP_URL } from './app-routes';
 
 export class Menu {
   public static pages: MenuItem[] = [
@@ -9,7 +10,7 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/chart-pie.svg',
           label: 'Dashboard',
-          route: '/dashboard',
+          route: `/${DASHBOARD_PAGE_URL}`,
         },
       ],
     },
@@ -41,19 +42,19 @@ export class Menu {
         {
           icon: 'assets/icons/heroicons/outline/cog.svg',
           label: 'Exercise Guides',
-          route: '/settings',
+          route: `/${EXERCISE_BASE_URL}/${EXERCISE_GUIDE_URL}`,
         },
         {
           icon: 'assets/icons/heroicons/outline/folder.svg',
           label: 'Muscle Group',
-          route: '/folders',
+          route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}`,
           children: [
-            { label: 'Shoulder', route: '/folders/current-files' },
-            { label: 'Chest', route: '/folders/download' },
-            { label: 'Back', route: '/folders/trash' },
-            { label: 'Biceps', route: '/folders/trash' },
-            { label: 'Triceps', route: '/folders/trash' },
-            { label: 'Legs', route: '/folders/trash' },
+            { label: 'Shoulder', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/shoulder` },
+            { label: 'Chest', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/chest` },
+            { label: 'Back', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/back` },
+            { label: 'Biceps', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/biceps` },
+            { label: 'Triceps', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/triceps` },
+            { label: 'Legs', route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}/legs` },
           ],
         },
       ],

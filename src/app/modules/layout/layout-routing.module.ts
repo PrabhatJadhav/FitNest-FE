@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout.component';
+import { DASHBOARD_PAGE_URL, EXERCISE_BASE_URL } from 'src/app/core/constants/app-routes';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: DASHBOARD_PAGE_URL,
     component: LayoutComponent,
     loadChildren: () => import('../dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'exercise',
+    path: EXERCISE_BASE_URL,
     component: LayoutComponent,
     loadChildren: () => import('../pages/exercise/exercise.module').then((m) => m.ExerciseModule),
   },
@@ -18,7 +19,7 @@ const routes: Routes = [
   //   component: LayoutComponent,
   //   loadChildren: () => import('../uikit/uikit.module').then((m) => m.UikitModule),
   // },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: DASHBOARD_PAGE_URL, pathMatch: 'full' },
 ];
 
 @NgModule({

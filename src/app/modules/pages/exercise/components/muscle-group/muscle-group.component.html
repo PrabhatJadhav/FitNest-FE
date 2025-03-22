@@ -1,1 +1,8 @@
 <p>muscle-group works!</p>
+
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.SHOULDER"> Shoulder </ng-container>
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.BACK"> Back </ng-container>
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.BICEPS"> Biceps </ng-container>
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.CHEST"> Chest </ng-container>
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.LEGS"> Legs </ng-container>
+<ng-container *ngIf="muscleType === MUSCLE_TYPE.TRICEPS"> Triceps </ng-container>
