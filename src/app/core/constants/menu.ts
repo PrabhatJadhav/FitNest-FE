@@ -24,7 +24,7 @@ export class Menu {
       separator: true,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/chart-pie.svg',
+          icon: 'ph-chart-donut',
           label: 'Dashboard',
           route: `/${DASHBOARD_PAGE_URL}`,
         },
@@ -35,17 +35,17 @@ export class Menu {
       separator: true,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/download.svg',
+          icon: 'ph-barbell',
           label: 'Custom',
           route: `/${WORKOUTS_BASE_URL}/${CUSTOM_WORKOUTS_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/gift.svg',
+          icon: 'ph-lockers',
           label: 'Best Results',
           route: `/${WORKOUTS_BASE_URL}/${FAVOURITE_WORKOUTS_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/users.svg',
+          icon: 'ph-heart-straight',
           label: 'Favourite',
           route: `/${WORKOUTS_BASE_URL}/${BEST_RESULTS_WORKOUTS_URL}`,
         },
@@ -56,12 +56,12 @@ export class Menu {
       separator: true,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/cog.svg',
+          icon: 'ph-notebook',
           label: 'Exercise Guides',
           route: `/${EXERCISE_BASE_URL}/${EXERCISE_GUIDE_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/folder.svg',
+          icon: 'ph-book',
           label: 'Muscle Group',
           route: `/${EXERCISE_BASE_URL}/${MUSCLE_GROUP_URL}`,
           children: [
@@ -80,17 +80,17 @@ export class Menu {
       separator: false,
       items: [
         {
-          icon: 'assets/icons/heroicons/outline/users.svg',
+          icon: 'ph-jar-label',
           label: 'Calories & Macros',
           route: `/${NUTRITION_BASE_URL}/${CALORIES_MACROS_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/gift.svg',
+          icon: 'ph-bowl-steam',
           label: 'Meal Planner',
           route: `/${NUTRITION_BASE_URL}/${MEAL_PLANNER_URL}`,
         },
         {
-          icon: 'assets/icons/heroicons/outline/download.svg',
+          icon: 'ph-cooking-pot',
           label: 'Recipes',
           route: `/${NUTRITION_BASE_URL}/${RECIPES_BASE_URL}`,
           children: [
