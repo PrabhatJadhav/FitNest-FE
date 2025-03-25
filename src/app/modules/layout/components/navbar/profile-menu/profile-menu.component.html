@@ -13,22 +13,23 @@
         <img class="rounded-md" src="" alt="" />
       </div>
       <div class="overflow-hidden px-2 text-sm font-semibold text-foreground">
-        Luciano Oliveira
-        <p class="truncate text-ellipsis text-xs font-semibold text-muted-foreground">me&#64;lanno.dev</p>
+        User
+        <p [title]="this.user?.email ?? '-'" class="truncate text-ellipsis text-xs font-semibold text-muted-foreground">
+          {{ this.user?.email ?? '-' }}
+        </p>
       </div>
     </div>
 
     <div class="border-b border-dashed border-border"></div>
 
     <ul class="mx-4 my-2 flex flex-col">
-      @for (item of profileMenu; track $index) {
       <li
+        *ngFor="let item of profileMenu; track: $index"
         (click)="item?.onClick()"
         routerLink="{{ item.link }}"
-        :key="$index"
         class="inline-flex cursor-pointer items-center gap-2 rounded-md px-3 py-2 text-xs font-semibold text-muted-foreground hover:bg-card hover:text-primary">
+        {{ item?.title }}
       </li>
-      }
     </ul>
     <hr class="border-dashed border-border" />
     <div class="mx-4 my-2">
@@ -57,7 +58,6 @@
           (click)="toggleThemeMode()"
           [ngClass]="{ 'border-muted-foreground bg-card': item == themeService.theme().mode }"
           class="focus-visible:ring-ring inline-flex h-8 cursor-pointer items-center justify-start whitespace-nowrap rounded-md border border-border bg-background px-3 text-xs font-medium text-muted-foreground shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-card hover:text-foreground">
-          
           <p class="capitalize">{{ item }}</p>
         </div>
         }

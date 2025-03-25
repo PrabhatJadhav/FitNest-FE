@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { ClickOutsideDirective } from '../../../../../shared/directives/click-outside.directive';
 import { ThemeService } from '../../../../../core/services/theme.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { User } from 'src/app/core/models/user.model';
+import { LOCALSTORAGE_CONSTANTS } from 'src/app/core/constants/local-storage.constants';
 
 @Component({
   selector: 'app-profile-menu',
   templateUrl: './profile-menu.component.html',
   styleUrls: ['./profile-menu.component.scss'],
   standalone: true,
-  imports: [ClickOutsideDirective, NgClass, RouterLink],
+  imports: [ClickOutsideDirective, NgClass, RouterLink, CommonModule],
   animations: [
     trigger('openClose', [
       state(
@@ -43,17 +45,16 @@ export class ProfileMenuComponent implements OnInit {
       icon: './assets/icons/heroicons/outline/user-circle.svg',
       link: '/profile',
     },
-    {
-      title: 'Settings',
-      icon: './assets/icons/heroicons/outline/cog-6-tooth.svg',
-      link: '/settings',
-    },
+    // {
+    //   title: 'Settings',
+    //   icon: './assets/icons/heroicons/outline/cog-6-tooth.svg',
+    //   link: '/settings',
+    // },
     {
       title: 'Log out',
       icon: './assets/icons/heroicons/outline/logout.svg',
       link: '/auth',
       onClick: () => {
-        console.log('click');
         this.authService.logout();
       },
     },
@@ -91,10 +92,19 @@ export class ProfileMenuComponent implements OnInit {
   ];
 
   public themeMode = ['light', 'dark'];
+  user: User | null = null;
 
   constructor(public themeService: ThemeService, public authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const user = JSON.parse(localStorage.getItem(LOCALSTORAGE_CONSTANTS.USER) ?? 'null');
+
+    if (user) {
+      this.user = user as User;
+
+      // console.log('user', this.user);
+    }
+  }
 
   public toggleMenu(): void {
     this.isOpen = !this.isOpen;
